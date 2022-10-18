@@ -24,7 +24,7 @@ namespace Capa_Datos
 
         }
         
-        public SqlConnection CrearConexion()
+        public SqlConnection CrearConexion() // crea el string para la conexion
         {
             SqlConnection Cadena = new SqlConnection();
             try
@@ -39,7 +39,7 @@ namespace Capa_Datos
             }
             return Cadena;
         }
-        public static Conexion getInstancia()
+        public static Conexion getInstancia() //  crea la instancia de la conexion
         {
             if(Con==null)
             {

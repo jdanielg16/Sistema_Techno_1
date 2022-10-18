@@ -8,5 +8,6 @@ namespace Capa_Datos
 {
     class Proceso_CRUD
     {
+
     }
 }
