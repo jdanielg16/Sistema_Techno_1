@@ -8,11 +8,16 @@ namespace Capa_Entidades
 {
     public class E_Productos
     { 
-        public string codigo { get; set; }
-        public string descripcion { get; set; }
-        public decimal precio { get; set; }
-        public int existencia { get; set; }
+        public string Idcodigo { get; set; }
+        public int  IdCategoria { get; set; }
+        public string Codigo { get; set; }
+        public string  NombreCategoria { get; set; }
+        public string Descripcion { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public int Stock { get; set; }
+        public  bool Estado { get; set; }
         public byte[] imagen { get; set; }
-        public DateTime Ingreso_Fecha { get; set; }
+
+
     }
 }
