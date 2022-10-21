@@ -42,8 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DCategoria.cs" />
     <Compile Include="Proceso_CRUD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Entidades\Capa_Entidades.csproj">
+      <Project>{77f7f897-e3c0-4c84-bef9-f71b57f9e7a8}</Project>
+      <Name>Capa_Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

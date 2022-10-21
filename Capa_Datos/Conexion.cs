@@ -17,10 +17,10 @@ namespace Capa_Datos
 
         private Conexion()
         {
-            this.Base="Nombre de la base";
-            this.Servidor = "Nombre del sevidor";
-            this.UsuarioBD = "Usuario";
-            this.ClaveBD = "Contrasena "; 
+            this.Base="BD_Techno";
+            this.Servidor = "DESKTOP-A11I0T7\\SQLSERVER";
+            this.UsuarioBD = "techno-user";
+            this.ClaveBD = "user1"; 
 
         }
         
