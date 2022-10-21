@@ -19,7 +19,7 @@ namespace Capa_Datos
         {
             this.Base="BD_Techno";
             this.Servidor = "DESKTOP-A11I0T7\\SQLSERVER";
-            this.UsuarioBD = "techno-user";
+            this.UsuarioBD = "techno_user";
             this.ClaveBD = "user1"; 
 
         }
