@@ -26,17 +26,17 @@ namespace Capa_Negocio
         public static string Insertar (string Nombre,string Descripcion)
         {
             DCategoria Datos = new DCategoria();
-            string existe = Datos.Existe(Nombre);// se hace  referencia a la funcion existe, mandando el nombre 
+            string existe = Datos.Existe(Nombre);// cargamos la funcion Existe de la clase DCategorias, validamos si hay igualdad
             if(existe.Equals("1"))
             {
                 return "La Categoria ya existe";
             }
             else
-            {
-                E_Categorias Obj = new E_Categorias();
-                Obj.Nombre = Nombre;
+            {    //creamos un objeto de la clase E_Categorias
+                E_Categorias Obj = new E_Categorias(); // luego de validar si existia igualdad, cargamos el objeto de la clase E_Categoria y lo mandamos
+                Obj.Nombre = Nombre;                    //  ala clase DCategorias a su funcion Insertar
                 Obj.Descripcion = Descripcion;
-                return Datos.Insertar(Obj);
+                return Datos.Insertar(Obj); // mandamos el objeto a la funcion insertar
             }
            
         }

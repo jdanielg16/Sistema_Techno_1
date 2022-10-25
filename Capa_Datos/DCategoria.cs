@@ -58,8 +58,9 @@ namespace Capa_Datos
                 if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
             }
         }
+                                            //
         public string Existe(string valor) // nos devuelve una cadena  de texto,espera un objeto que se insertara 
-                                                 //en la tabla categoria de la base de datos
+                                             //en la tabla categoria de la base de datos
         {
             string Rpta = "";
             SqlConnection sqlcon = new SqlConnection();
@@ -98,7 +99,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_insertar,",sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_insertar",sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = Obj.Nombre;
                 comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = Obj.Descripcion;
