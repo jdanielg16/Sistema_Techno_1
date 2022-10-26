@@ -23,6 +23,7 @@ namespace Capa_Presentacion1
             {
                 DgvListadCategorias.DataSource = NCategoria.Listar();
                 this.FormatoDgvCategoria();
+                this.Limpir();
                 lblTotalCategorias.Text = "Total registros: " + Convert.ToString(DgvListadCategorias.Rows.Count);
             }
             catch (Exception ex)
@@ -59,6 +60,7 @@ namespace Capa_Presentacion1
             txtId.Clear();
             txtDescripcion.Clear();
             btnInsertar.Visible = true;
+            btnActualizar.Visible = false;
             erroricono.Clear();
         }
 
@@ -82,7 +84,7 @@ namespace Capa_Presentacion1
                     string Rpta = "";
                     if (txtNombre.Text == string.Empty)
                     {
-                        this.MensajeError("Falta ingresar ingresar algunos datos,  seran remarcados");
+                        this.MensajeError("Falta ingresar ingresar algunos datos, seran remarcados");
                         erroricono.SetError(txtNombre, "Ingrese un nombre");// erroricono es nuestro Errorprovider(Interfaz en el formulario) indicando el lugar del error
 
                     }
@@ -119,6 +121,52 @@ namespace Capa_Presentacion1
         private void btnBuscarCategorias_Click(object sender, EventArgs e)
         {
             this.BuscarCategorias();
+        }
+
+        private void DgvListadCategorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Limpir();
+            btnActualizar.Visible = true;
+            btnInsertar.Visible = false;
+            txtId.Text =Convert.ToString(DgvListadCategorias.CurrentRow.Cells["ID"].Value);//convertimos a string porque del data obtenemos un objeto convertimos el valor de la celda actual
+            txtNombre.Text = Convert.ToString(DgvListadCategorias.CurrentRow.Cells["Nombre"].Value);
+            txtDescripcion.Text = Convert.ToString(DgvListadCategorias.CurrentRow.Cells["Descripcion"].Value);
+            tabGeneral.SelectedIndex = 1; 
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Rpta = "";
+                if (txtNombre.Text == string.Empty || txtId.Text==string.Empty)
+                {
+                    this.MensajeError("Falta ingresar ingresar algunos datos,  seran remarcados");
+                    erroricono.SetError(txtNombre, "Ingrese un nombre");// erroricono es nuestro Errorprovider(Interfaz en el formulario) indicando el lugar del error
+
+                }
+                else
+                {
+                    Rpta = NCategoria.Actualizar(Convert.ToInt32(txtId.Text),txtNombre.Text.Trim(), txtDescripcion.Text.Trim());// llamamos ala funcion Insertar de la clase NCategoria
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.MensajeOk("Datos Actualizados Correctamente");
+                        this.Limpir();//Limpiamos las casillas
+                        this.ListarCategorias();// cargamos el data
+                    }
+                    else
+                    {
+                        this.MensajeError(Rpta);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message + ex.StackTrace);
+
+            }
         }
     }
 }

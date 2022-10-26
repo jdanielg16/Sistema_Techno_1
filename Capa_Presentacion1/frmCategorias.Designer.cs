@@ -30,6 +30,7 @@ namespace Capa_Presentacion1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategorias));
             this.tabGeneral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblTotalCategorias = new System.Windows.Forms.Label();
@@ -48,6 +49,8 @@ namespace Capa_Presentacion1
             this.txtId = new System.Windows.Forms.TextBox();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscarCategorias = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.tabGeneral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListadCategorias)).BeginInit();
@@ -72,29 +75,31 @@ namespace Capa_Presentacion1
             this.tabPage1.Controls.Add(this.Buscar);
             this.tabPage1.Controls.Add(this.DgvListadCategorias);
             this.tabPage1.Controls.Add(this.txtBuscarCategorias);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1375, 738);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Lista Categorias";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // lblTotalCategorias
             // 
             this.lblTotalCategorias.AutoSize = true;
-            this.lblTotalCategorias.Location = new System.Drawing.Point(1037, 541);
+            this.lblTotalCategorias.Location = new System.Drawing.Point(1009, 539);
             this.lblTotalCategorias.Name = "lblTotalCategorias";
-            this.lblTotalCategorias.Size = new System.Drawing.Size(51, 20);
+            this.lblTotalCategorias.Size = new System.Drawing.Size(57, 20);
             this.lblTotalCategorias.TabIndex = 3;
             this.lblTotalCategorias.Text = "label2";
             // 
             // Buscar
             // 
             this.Buscar.AutoSize = true;
-            this.Buscar.Location = new System.Drawing.Point(39, 87);
+            this.Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buscar.Location = new System.Drawing.Point(42, 88);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(59, 20);
+            this.Buscar.Size = new System.Drawing.Size(93, 29);
             this.Buscar.TabIndex = 2;
             this.Buscar.Text = "Buscar";
             // 
@@ -114,6 +119,7 @@ namespace Capa_Presentacion1
             this.DgvListadCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListadCategorias.Size = new System.Drawing.Size(1109, 351);
             this.DgvListadCategorias.TabIndex = 1;
+            this.DgvListadCategorias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListadCategorias_CellDoubleClick);
             // 
             // Seleccionar
             // 
@@ -125,13 +131,16 @@ namespace Capa_Presentacion1
             // 
             // txtBuscarCategorias
             // 
-            this.txtBuscarCategorias.Location = new System.Drawing.Point(234, 81);
+            this.txtBuscarCategorias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarCategorias.Location = new System.Drawing.Point(174, 88);
             this.txtBuscarCategorias.Name = "txtBuscarCategorias";
             this.txtBuscarCategorias.Size = new System.Drawing.Size(623, 26);
             this.txtBuscarCategorias.TabIndex = 0;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnActualizar);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
@@ -140,22 +149,31 @@ namespace Capa_Presentacion1
             this.tabPage2.Controls.Add(this.txtDescripcion);
             this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.txtId);
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1375, 738);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Guardar Categorias";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(597, 487);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(184)))), ((int)(((byte)(126)))));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.ImageKey = "Cancelar.png";
+            this.btnCancelar.ImageList = this.imageList1;
+            this.btnCancelar.Location = new System.Drawing.Point(593, 489);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(211, 54);
+            this.btnCancelar.Size = new System.Drawing.Size(215, 62);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label3
@@ -184,18 +202,25 @@ namespace Capa_Presentacion1
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(80, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.Size = new System.Drawing.Size(95, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre (*)";
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(256, 487);
+            this.btnInsertar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnInsertar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnInsertar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsertar.ImageKey = "Guardado1.png";
+            this.btnInsertar.ImageList = this.imageList1;
+            this.btnInsertar.Location = new System.Drawing.Point(256, 489);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(211, 54);
+            this.btnInsertar.Size = new System.Drawing.Size(215, 62);
             this.btnInsertar.TabIndex = 5;
             this.btnInsertar.Text = "Insertar";
-            this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // txtDescripcion
@@ -227,13 +252,47 @@ namespace Capa_Presentacion1
             // 
             // btnBuscarCategorias
             // 
-            this.btnBuscarCategorias.Location = new System.Drawing.Point(955, 68);
+            this.btnBuscarCategorias.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnBuscarCategorias.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnBuscarCategorias.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCategorias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCategorias.ImageKey = "Buscar.png";
+            this.btnBuscarCategorias.ImageList = this.imageList1;
+            this.btnBuscarCategorias.Location = new System.Drawing.Point(839, 68);
             this.btnBuscarCategorias.Name = "btnBuscarCategorias";
-            this.btnBuscarCategorias.Size = new System.Drawing.Size(133, 52);
+            this.btnBuscarCategorias.Size = new System.Drawing.Size(227, 67);
             this.btnBuscarCategorias.TabIndex = 4;
             this.btnBuscarCategorias.Text = "Buscar";
-            this.btnBuscarCategorias.UseVisualStyleBackColor = true;
+            this.btnBuscarCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarCategorias.UseVisualStyleBackColor = false;
             this.btnBuscarCategorias.Click += new System.EventHandler(this.btnBuscarCategorias_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Buscar.png");
+            this.imageList1.Images.SetKeyName(1, "Guardado.png");
+            this.imageList1.Images.SetKeyName(2, "Guardado1.png");
+            this.imageList1.Images.SetKeyName(3, "Cancelar.png");
+            this.imageList1.Images.SetKeyName(4, "Actualizar.png");
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnActualizar.ImageKey = "Actualizar.png";
+            this.btnActualizar.ImageList = this.imageList1;
+            this.btnActualizar.Location = new System.Drawing.Point(256, 490);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(215, 62);
+            this.btnActualizar.TabIndex = 10;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // frmCategorias
             // 
@@ -275,6 +334,8 @@ namespace Capa_Presentacion1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider erroricono;
         private System.Windows.Forms.Button btnBuscarCategorias;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
 

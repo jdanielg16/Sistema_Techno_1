@@ -67,7 +67,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_existe,", sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_existe", sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@valor", SqlDbType.VarChar).Value = valor;
                 SqlParameter ParExiste = new SqlParameter();
@@ -126,7 +126,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_actualizar,", sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_actualizar", sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value = Obj.IdCategoria;
                 comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = Obj.Nombre;
@@ -154,7 +154,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_eliminar,", sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_eliminar", sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value =Id;
                 sqlcon.Open();
@@ -178,7 +178,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_activar,", sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_activar", sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value = Id;
                 sqlcon.Open();
@@ -202,7 +202,7 @@ namespace Capa_Datos
             try
             {
                 sqlcon = Conexion.getInstancia().CrearConexion();
-                SqlCommand comando = new SqlCommand("categoria_desactivar,", sqlcon);
+                SqlCommand comando = new SqlCommand("categoria_desactivar", sqlcon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value = Id;
                 sqlcon.Open();
